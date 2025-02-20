@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuthStore } from "../store";
-import { useNavigate,Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -24,7 +24,12 @@ const Register = () => {
                 <input className="w-full p-2 border rounded mb-2" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button className="w-full bg-green-500 text-white p-2 rounded">Register</button>
             </form>
-            <span className="flex items-center mt-10 "> Have an account then <Link to="/login" ><button className="w-full mx-2 cursor-pointer bg-blue-500 text-white p-2 rounded">Login</button> </Link> </span>
+            <span className="flex items-center mt-10">
+                Already have an account? 
+                <Link to="/login">
+                    <button className="mx-2 cursor-pointer bg-blue-500 text-white p-2 rounded">Login</button>
+                </Link>
+            </span>
         </div>
     );
 };

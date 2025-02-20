@@ -2,13 +2,12 @@ import { useState } from "react";
 import { useAuthStore } from "../store";
 import { useNavigate, Link } from "react-router-dom";
 
-
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const login = useAuthStore((state) => state.login);
     const navigate = useNavigate();
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         await login(email, password);
@@ -23,7 +22,12 @@ const Login = () => {
                 <input className="w-full p-2 border rounded mb-2" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button className="w-full bg-blue-500 text-white p-2 rounded">Login</button>
             </form>
-           <span className="flex items-center mt-10 ">Don't Have an account then <Link to="/register" ><button className="w-full mx-2 cursor-pointer bg-red-500 text-white p-2 rounded">SignUp</button> </Link> </span>
+            <span className="flex items-center mt-10">
+                Don't Have an account?  
+                <Link to="/register">
+                    <button className="mx-2 cursor-pointer bg-red-500 text-white p-2 rounded">SignUp</button>
+                </Link>
+            </span>
         </div>
     );
 };
